@@ -1,0 +1,30 @@
+var f;
+
+class Foo {
+  method(param) {
+    fun f_() {
+      print param;
+    }
+    f = f_;
+  }
+}
+
+Foo().method("param");
+f();
+
+class Bar < Foo {
+  inBar() {
+    print "in bar";
+  }
+}
+
+class Baz < Bar {
+  inBaz() {
+    print "in baz";
+  }
+}
+
+var baz = Baz();
+baz.inFoo();
+baz.inBar();
+baz.inBaz();
