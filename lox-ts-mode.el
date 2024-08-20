@@ -280,7 +280,8 @@ Return nil if there is no name or NODE is not a defun node."
     (treesit-major-mode-setup)))
 
 
-(derived-mode-add-parents 'lox-ts-mode '(lox-mode))
+(when (fboundp 'derived-mode-add-parents)
+  (derived-mode-add-parents 'lox-ts-mode '(lox-mode)))
 
 (if (treesit-ready-p 'lox)
     (add-to-list 'auto-mode-alist '("\\.lox\\'" . lox-ts-mode)))
